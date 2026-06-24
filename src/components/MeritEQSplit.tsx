@@ -1,13 +1,25 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function MeritEQSplit() {
+  const [hoveredSide, setHoveredSide] = useState<"merit" | "eq" | null>(null);
+
   return (
-    <section id="approach" className="relative min-h-screen flex flex-col md:flex-row text-paper">
+    <section id="approach" className="relative min-h-screen flex flex-col md:flex-row text-paper overflow-hidden">
       
       {/* MERIT */}
-      <div className="flex-1 p-12 md:p-24 lg:p-32 flex flex-col justify-center border-b md:border-b-0 md:border-r border-stone/20 relative group hover-target bg-midnight">
+      <motion.div
+        animate={{
+          flex: hoveredSide === "merit" ? 1.06 : hoveredSide === "eq" ? 0.94 : 1,
+          backgroundColor: hoveredSide === "merit" ? "#121A35" : "#0B1021",
+        }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        onMouseEnter={() => setHoveredSide("merit")}
+        onMouseLeave={() => setHoveredSide(null)}
+        className="p-12 md:p-24 lg:p-32 flex flex-col justify-center border-b md:border-b-0 md:border-r border-stone/20 relative group hover-target"
+      >
         <div className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -31,10 +43,19 @@ export default function MeritEQSplit() {
             </ul>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* EQ */}
-      <div className="flex-1 p-12 md:p-24 lg:p-32 flex flex-col justify-center relative group hover-target bg-obsidian text-paper">
+      <motion.div
+        animate={{
+          flex: hoveredSide === "eq" ? 1.06 : hoveredSide === "merit" ? 0.94 : 1,
+          backgroundColor: hoveredSide === "eq" ? "#0A0A0A" : "#050505",
+        }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        onMouseEnter={() => setHoveredSide("eq")}
+        onMouseLeave={() => setHoveredSide(null)}
+        className="p-12 md:p-24 lg:p-32 flex flex-col justify-center relative group hover-target text-paper"
+      >
         <div className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -58,7 +79,7 @@ export default function MeritEQSplit() {
             </ul>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
     </section>
   );

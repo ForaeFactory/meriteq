@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { useState, useRef } from "react";
 
 const phases = [
   {
@@ -56,6 +56,18 @@ const phases = [
 
 export default function StrategicJourney() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   return (
     <section id="journey" className="py-24 md:py-36 bg-obsidian text-paper border-b border-stone/30 relative">
@@ -83,9 +95,15 @@ export default function StrategicJourney() {
         </div>
 
         {/* Phase Timeline Cards */}
-        <div className="relative border-l border-stone/20 ml-4 md:ml-8 pl-8 md:pl-16 space-y-16">
-          {/* Vertical connecting line that lights up */}
-          <div className="absolute left-0 top-0 w-[1px] h-full bg-stone/20 pointer-events-none" />
+        <div ref={containerRef} className="relative ml-4 md:ml-8 pl-8 md:pl-16 space-y-16">
+          {/* Vertical connecting line background track */}
+          <div className="absolute left-0 top-0 w-[2px] h-full bg-stone/20 pointer-events-none" />
+          
+          {/* Scroll-driven illuminating line overlay */}
+          <motion.div
+            style={{ scaleY, originY: 0 }}
+            className="absolute left-0 top-0 w-[2px] h-full bg-cyan-accent pointer-events-none z-10"
+          />
 
           {phases.map((phase, index) => (
             <div 

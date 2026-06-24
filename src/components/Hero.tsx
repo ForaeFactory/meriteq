@@ -33,7 +33,7 @@ export default function Hero() {
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="text-6xl md:text-8xl lg:text-[8rem] font-serif leading-[0.9] tracking-tight text-stone-muted mb-12 italic"
+            className="text-6xl md:text-8xl lg:text-[8rem] font-serif leading-[0.9] tracking-tight text-stone-muted mb-12 italic pr-4"
           >
             High-Stakes Growth.
           </motion.h1>
@@ -50,9 +50,12 @@ export default function Hero() {
           </p>
 
           <div className="flex justify-center hover-target">
-            <button className="group relative overflow-hidden rounded-full border border-stone px-10 py-5 text-sm font-semibold tracking-widest uppercase text-paper transition-all duration-700 hover:border-cyan-accent hover:bg-cyan-accent hover:text-obsidian">
+            <a
+              href="#pedigree"
+              className="group relative overflow-hidden rounded-full border border-stone px-10 py-5 text-sm font-semibold tracking-widest uppercase text-paper transition-all duration-700 hover:border-cyan-accent hover:bg-cyan-accent hover:text-obsidian block text-center"
+            >
               <span className="relative z-10">Discover the Firm</span>
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>

@@ -177,7 +177,7 @@ export default function Navbar() {
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center flex-grow">
               <nav className="md:col-span-8 flex flex-col gap-6 md:gap-8 align-start">
                 {navLinks.map((link, idx) => (
-                  <div key={idx} className="overflow-hidden">
+                  <div key={idx} className="overflow-hidden pr-12 pb-4">
                     <motion.div variants={linkItemVariants}>
                       <a
                         href={link.href}

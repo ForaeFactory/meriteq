@@ -1,16 +1,42 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView, animate } from "framer-motion";
+import { useEffect, useRef } from "react";
+
+function Counter({ value, decimals = 0 }: { value: number; decimals?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (!isInView) return;
+    const controls = animate(0, value, {
+      duration: 1.8,
+      ease: [0.16, 1, 0.3, 1], // Weighted easing curve
+      onUpdate: (latest) => {
+        if (ref.current) {
+          ref.current.textContent = latest.toFixed(decimals);
+        }
+      },
+    });
+    return () => controls.stop();
+  }, [value, isInView, decimals]);
+
+  return <span ref={ref}>0</span>;
+}
 
 export default function ExecutivePedigree() {
   const achievements = [
     {
-      metric: "150M",
+      value: 150,
+      decimals: 0,
+      suffix: "M",
       label: "AB InBev (Michelob ULTRA)",
       desc: "Scaled Michelob ULTRA Pure Gold to $150M in 10 months. Managed $46M contract portfolios.",
     },
     {
-      metric: "1.1B",
+      value: 1.1,
+      decimals: 1,
+      suffix: "B",
       label: "Kraft Heinz Company",
       desc: "Optimized $1.1B Global Marketing architecture. Spearheaded agile enterprise-wide transformation.",
     },
@@ -39,9 +65,9 @@ export default function ExecutivePedigree() {
                   transition={{ duration: 1, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <div className="text-8xl md:text-[8rem] font-serif tracking-tighter leading-none mb-6 text-stone-muted group-hover:text-paper transition-colors duration-700">
-                    {item.metric.slice(0, -1)}
+                    <Counter value={item.value} decimals={item.decimals} />
                     <span className="text-cyan-accent italic">
-                      {item.metric.slice(-1)}
+                      {item.suffix}
                     </span>
                   </div>
                   <div className="font-semibold text-lg mb-3 tracking-wider uppercase text-paper">

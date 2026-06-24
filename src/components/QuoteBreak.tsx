@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function QuoteBreak() {
   return (
-    <section className="py-24 md:py-48 bg-cyan-accent text-obsidian overflow-hidden relative cursor-none hover-target">
+    <section className="py-24 md:py-48 bg-cyan-accent text-obsidian overflow-hidden relative cursor-none hover-target outline-[1px] outline-cyan-accent -my-px">
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center justify-center text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
