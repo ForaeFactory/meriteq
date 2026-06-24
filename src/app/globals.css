@@ -50,3 +50,9 @@ html.lenis, html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+/* Prevent sticky header from overlapping scroll anchor targets */
+[id] {
+  scroll-margin-top: 80px;
+}
+

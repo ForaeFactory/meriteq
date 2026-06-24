@@ -22,7 +22,7 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="relative bg-obsidian text-paper">
+    <section id="capabilities" className="relative bg-obsidian text-paper">
       <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row relative">
         
         {/* Sticky Left Column */}

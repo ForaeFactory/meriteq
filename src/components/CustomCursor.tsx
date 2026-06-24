@@ -1,15 +1,32 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Outer ring spring: light and responsive, but retains a subtle trailing follow effect
+  const outerX = useSpring(mouseX, {
+    stiffness: 350,
+    damping: 25,
+    mass: 0.25,
+  });
+  const outerY = useSpring(mouseY, {
+    stiffness: 350,
+    damping: 25,
+    mass: 0.25,
+  });
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+      if (!isVisible) setIsVisible(true);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -34,41 +51,49 @@ export default function CustomCursor() {
       window.removeEventListener("mousemove", updateMousePosition);
       window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, []);
+  }, [mouseX, mouseY, isVisible]);
+
+  if (!isVisible) return null;
 
   return (
     <>
       {/* Outer Ring */}
       <motion.div
         className="fixed top-0 left-0 w-8 h-8 border border-cyan-accent/50 rounded-full pointer-events-none z-[100]"
+        style={{
+          x: outerX,
+          y: outerY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
         animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
           scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering ? "rgba(0, 229, 255, 0.1)" : "rgba(0, 229, 255, 0)",
+          backgroundColor: isHovering ? "rgba(0, 229, 255, 0.15)" : "rgba(0, 229, 255, 0)",
         }}
         transition={{
           type: "spring",
-          stiffness: 150,
-          damping: 15,
-          mass: 0.5,
+          stiffness: 350,
+          damping: 22,
         }}
       />
-      {/* Inner Dot */}
+      {/* Inner Dot - Directly mapped to mouseX/mouseY for zero delay */}
       <motion.div
         className="fixed top-0 left-0 w-1.5 h-1.5 bg-cyan-accent rounded-full pointer-events-none z-[100]"
+        style={{
+          x: mouseX,
+          y: mouseY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
         animate={{
-          x: mousePosition.x - 3,
-          y: mousePosition.y - 3,
           opacity: isHovering ? 0 : 1,
+          scale: isHovering ? 0 : 1,
         }}
         transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 28,
-          mass: 0.1,
+          duration: 0.15,
         }}
       />
     </>
   );
 }
+

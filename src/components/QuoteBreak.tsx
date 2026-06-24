@@ -14,7 +14,7 @@ export default function QuoteBreak() {
           className="max-w-5xl"
         >
           <h2 className="text-4xl md:text-6xl lg:text-[5rem] font-serif tracking-tight leading-[1.1] mb-12">
-            "The organizations that survive the next decade won't just adapt to change—they will architect it."
+            &ldquo;The organizations that survive the next decade won&apos;t just adapt to change&mdash;they will architect it.&rdquo;
           </h2>
           <div className="text-sm font-semibold tracking-[0.2em] uppercase">
             — The Merit EQ Philosophy

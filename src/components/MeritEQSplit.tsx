@@ -4,11 +4,10 @@ import { motion } from "framer-motion";
 
 export default function MeritEQSplit() {
   return (
-    <section className="relative min-h-screen flex flex-col md:flex-row text-paper">
+    <section id="approach" className="relative min-h-screen flex flex-col md:flex-row text-paper">
       
       {/* MERIT */}
       <div className="flex-1 p-12 md:p-24 lg:p-32 flex flex-col justify-center border-b md:border-b-0 md:border-r border-stone/20 relative group hover-target bg-midnight">
-        <div className="absolute inset-0 bg-stone/5 scale-y-0 origin-bottom transition-transform duration-700 ease-in-out group-hover:scale-y-100" />
         <div className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -23,8 +22,9 @@ export default function MeritEQSplit() {
             </p>
             <ul className="space-y-6">
               {['Data-Driven Architecture', 'Scalable Operations', 'Financial Modeling'].map((item, i) => (
-                <li key={i} className="flex items-center gap-6 text-paper font-medium group-hover:text-cyan-accent transition-colors duration-500">
-                  <span className="text-stone-muted text-xs font-serif italic">0{i+1}</span>
+                <li key={i} className="flex items-center gap-4 text-paper font-medium hover:text-cyan-accent transition-colors duration-500 group/item cursor-none">
+                  <span className="text-stone-muted text-xs font-serif italic group-hover/item:text-cyan-accent transition-colors duration-500">0{i+1}</span>
+                  <span className="w-0 h-[1px] bg-cyan-accent transition-all duration-500 group-hover/item:w-6" />
                   {item}
                 </li>
               ))}
@@ -35,7 +35,6 @@ export default function MeritEQSplit() {
 
       {/* EQ */}
       <div className="flex-1 p-12 md:p-24 lg:p-32 flex flex-col justify-center relative group hover-target bg-obsidian text-paper">
-        <div className="absolute inset-0 bg-stone/20 scale-y-0 origin-top transition-transform duration-700 ease-in-out group-hover:scale-y-100" />
         <div className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -50,8 +49,9 @@ export default function MeritEQSplit() {
             </p>
             <ul className="space-y-6">
               {['Executive Coaching', 'Change Management', 'Cultural Alignment'].map((item, i) => (
-                <li key={i} className="flex items-center gap-6 text-paper font-medium group-hover:text-cyan-accent transition-colors duration-500">
-                  <span className="text-stone-muted text-xs font-serif italic">0{i+1}</span>
+                <li key={i} className="flex items-center gap-4 text-paper font-medium hover:text-cyan-accent transition-colors duration-500 group/item cursor-none">
+                  <span className="text-stone-muted text-xs font-serif italic group-hover/item:text-cyan-accent transition-colors duration-500">0{i+1}</span>
+                  <span className="w-0 h-[1px] bg-cyan-accent transition-all duration-500 group-hover/item:w-6" />
                   {item}
                 </li>
               ))}

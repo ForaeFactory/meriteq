@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Urbanist, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import NoiseTexture from "@/components/NoiseTexture";
 import CustomCursor from "@/components/CustomCursor";
+import Navbar from "@/components/Navbar";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -32,8 +32,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-cyan-accent selection:text-obsidian">
         <SmoothScroll>
-          <NoiseTexture />
           <CustomCursor />
+          <Navbar />
           {children}
         </SmoothScroll>
       </body>
