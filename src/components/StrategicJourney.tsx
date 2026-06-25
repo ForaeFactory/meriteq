@@ -72,7 +72,7 @@ export default function StrategicJourney() {
   return (
     <section id="journey" className="py-24 md:py-36 bg-obsidian text-paper border-b border-stone/30 relative">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mb-24 hover-target">
           <motion.div
@@ -98,7 +98,7 @@ export default function StrategicJourney() {
         <div ref={containerRef} className="relative ml-4 md:ml-8 pl-8 md:pl-16 space-y-16">
           {/* Vertical connecting line background track */}
           <div className="absolute left-0 top-0 w-[2px] h-full bg-stone/20 pointer-events-none" />
-          
+
           {/* Scroll-driven illuminating line overlay */}
           <motion.div
             style={{ scaleY, originY: 0 }}
@@ -106,15 +106,15 @@ export default function StrategicJourney() {
           />
 
           {phases.map((phase, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="relative group hover-target"
               onMouseEnter={() => setActiveIdx(index)}
               onMouseLeave={() => setActiveIdx(null)}
             >
               {/* Stepper Dot */}
               <div className="absolute -left-[37px] md:-left-[69px] top-2 flex items-center justify-center">
-                <motion.div 
+                <motion.div
                   animate={{
                     borderColor: activeIdx === index ? "#00E5FF" : "rgba(115, 115, 115, 0.3)",
                     backgroundColor: activeIdx === index ? "#00E5FF" : "#050505",
@@ -127,7 +127,7 @@ export default function StrategicJourney() {
 
               {/* Phase Card Content */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pb-8 border-b border-stone/10 last:border-0">
-                
+
                 {/* Left Meta info */}
                 <div className="lg:col-span-4">
                   <motion.div
@@ -150,7 +150,7 @@ export default function StrategicJourney() {
 
                 {/* Center Description */}
                 <div className="lg:col-span-4">
-                  <motion.p 
+                  <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10%" }}
@@ -174,8 +174,8 @@ export default function StrategicJourney() {
                     </div>
                     <ul className="space-y-3">
                       {phase.deliverables.map((item, itemIdx) => (
-                        <li 
-                          key={itemIdx} 
+                        <li
+                          key={itemIdx}
                           className="flex items-center gap-3 text-base text-paper group-hover:text-cyan-accent/90 transition-colors duration-500"
                         >
                           <span className="text-xs font-serif italic text-stone-muted">

@@ -46,7 +46,7 @@ export default function Hero() {
           className="max-w-xl mx-auto"
         >
           <p className="text-lg md:text-xl text-stone-muted font-light leading-relaxed mb-12">
-            We fuse the ruthless operating discipline of the Fortune 100 with the profound empathy required to build enduring enterprise cultures.
+            We fuse the ruthless operating discipline of the Fortune 100 with the empathy required to build enduring enterprise cultures.
           </p>
 
           <div className="flex justify-center hover-target">
