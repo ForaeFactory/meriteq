@@ -44,7 +44,9 @@ export default function ExecutivePedigree() {
 
   const partners = [
     { name: "Nestle", logo: "/images/nestle_logo.svg", detail: "Enterprise Selling & Velocity Optimization", heightClass: "h-16" },
-    { name: "Stanley", logo: "/images/sbd_logo.svg", detail: "Innovation & Retail Relationships", heightClass: "h-20" },
+    {
+      name: "Stanley", logo: "/images/sbd_logo.svg", detail: "Innovation & Retail Relationships", heightClass: "h-30"
+    },
     { name: "AB InBev", logo: "/images/inbev_logo.svg", detail: "Product Scale & Commercial Brand Building", heightClass: "h-20" },
     { name: "Kraft Heinz", logo: "/images/kraftheinz_logo.svg", detail: "Marketing Architecture & Commercial Strategy", heightClass: "h-20" },
   ];
