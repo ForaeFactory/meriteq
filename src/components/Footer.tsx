@@ -27,9 +27,8 @@ export default function Footer() {
 
           <div className="lg:col-span-2 flex flex-col justify-end mt-12 lg:mt-0">
              <ul className="space-y-6 text-paper/80 text-lg font-light">
-               <li><a href="mailto:Christina@Merit-EQ.com" className="hover:text-cyan-accent transition-colors relative group">Contact<span className="absolute -bottom-1 left-0 w-full h-[1px] bg-cyan-accent scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"/></a></li>
-               <li><a href="#" className="hover:text-cyan-accent transition-colors relative group">LinkedIn<span className="absolute -bottom-1 left-0 w-full h-[1px] bg-cyan-accent scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"/></a></li>
-               <li><a href="#" className="hover:text-cyan-accent transition-colors relative group">Twitter<span className="absolute -bottom-1 left-0 w-full h-[1px] bg-cyan-accent scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"/></a></li>
+               <li><a href="mailto:Christina@merit-eq.com" className="hover:text-cyan-accent transition-colors relative group">Contact<span className="absolute -bottom-1 left-0 w-full h-[1px] bg-cyan-accent scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"/></a></li>
+               <li><a href="https://www.linkedin.com/in/christinaacostello/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-accent transition-colors relative group">LinkedIn<span className="absolute -bottom-1 left-0 w-full h-[1px] bg-cyan-accent scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"/></a></li>
              </ul>
           </div>
         </div>

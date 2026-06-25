@@ -126,7 +126,7 @@ export default function StrategicJourney() {
               </div>
 
               {/* Phase Card Content */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pb-8 border-b border-stone/10 last:border-0">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pb-8 border-b border-stone/10 last:border-0">
                 
                 {/* Left Meta info */}
                 <div className="lg:col-span-4">
@@ -155,7 +155,7 @@ export default function StrategicJourney() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10%" }}
                     transition={{ duration: 0.8, delay: index * 0.05 + 0.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-stone-muted text-base font-light leading-relaxed"
+                    className="text-stone-muted text-lg font-light leading-relaxed"
                   >
                     {phase.desc}
                   </motion.p>
@@ -176,9 +176,9 @@ export default function StrategicJourney() {
                       {phase.deliverables.map((item, itemIdx) => (
                         <li 
                           key={itemIdx} 
-                          className="flex items-center gap-3 text-sm text-paper group-hover:text-cyan-accent/90 transition-colors duration-500"
+                          className="flex items-center gap-3 text-base text-paper group-hover:text-cyan-accent/90 transition-colors duration-500"
                         >
-                          <span className="text-[10px] font-serif italic text-stone-muted">
+                          <span className="text-xs font-serif italic text-stone-muted">
                             0{itemIdx + 1}
                           </span>
                           {item}

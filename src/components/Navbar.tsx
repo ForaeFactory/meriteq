@@ -42,6 +42,8 @@ export default function Navbar() {
     { name: "Contact", href: "#contact" },
   ];
 
+  const transitionEase = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
   const menuContainerVariants = {
     hidden: { opacity: 0, y: "-100%" },
     visible: {
@@ -49,7 +51,7 @@ export default function Navbar() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1],
+        ease: transitionEase,
         staggerChildren: 0.08,
         delayChildren: 0.15,
       },
@@ -59,7 +61,7 @@ export default function Navbar() {
       y: "-100%",
       transition: {
         duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
+        ease: transitionEase,
         staggerChildren: 0.05,
         staggerDirection: -1,
       },
@@ -71,12 +73,12 @@ export default function Navbar() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration: 0.6, ease: transitionEase },
     },
     exit: {
       y: -20,
       opacity: 0,
-      transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration: 0.4, ease: transitionEase },
     },
   };
 
@@ -202,10 +204,10 @@ export default function Navbar() {
                       Contact Inquiry
                     </div>
                     <a
-                      href="mailto:Christina@Merit-EQ.com"
+                      href="mailto:Christina@merit-eq.com"
                       className="text-lg text-paper hover:text-cyan-accent transition-colors duration-300 hover-target"
                     >
-                      Christina@Merit-EQ.com
+                      Christina@merit-eq.com
                     </a>
                   </motion.div>
                 </div>
@@ -231,10 +233,7 @@ export default function Navbar() {
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center pt-8 border-t border-stone/10 text-stone-muted text-xs font-semibold tracking-widest uppercase">
               <div>&copy; {new Date().getFullYear()} Merit EQ.</div>
               <div className="flex gap-8 mt-4 md:mt-0">
-                <a href="#" className="hover:text-cyan-accent transition-colors duration-300 hover-target">
-                  Twitter
-                </a>
-                <a href="#" className="hover:text-cyan-accent transition-colors duration-300 hover-target">
+                <a href="https://www.linkedin.com/in/christinaacostello/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-accent transition-colors duration-300 hover-target">
                   LinkedIn
                 </a>
               </div>

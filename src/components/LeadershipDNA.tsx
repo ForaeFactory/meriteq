@@ -122,7 +122,7 @@ export default function LeadershipDNA() {
                     </div>
                   </div>
                   
-                  <p className="text-stone-muted text-sm font-light leading-relaxed">
+                  <p className="text-stone-muted text-base font-light leading-relaxed">
                     {strength.description}
                   </p>
                 </div>

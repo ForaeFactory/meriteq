@@ -34,8 +34,8 @@ export default function MeritEQSplit() {
             </p>
             <ul className="space-y-6">
               {['Data-Driven Architecture', 'Scalable Operations', 'Financial Modeling'].map((item, i) => (
-                <li key={i} className="flex items-center gap-4 text-paper font-medium hover:text-cyan-accent transition-colors duration-500 group/item cursor-none">
-                  <span className="text-stone-muted text-xs font-serif italic group-hover/item:text-cyan-accent transition-colors duration-500">0{i+1}</span>
+                <li key={i} className="flex items-center gap-4 text-lg text-paper font-medium hover:text-cyan-accent transition-colors duration-500 group/item cursor-none">
+                  <span className="text-stone-muted text-sm font-serif italic group-hover/item:text-cyan-accent transition-colors duration-500">0{i+1}</span>
                   <span className="w-0 h-[1px] bg-cyan-accent transition-all duration-500 group-hover/item:w-6" />
                   {item}
                 </li>
@@ -70,8 +70,8 @@ export default function MeritEQSplit() {
             </p>
             <ul className="space-y-6">
               {['Executive Coaching', 'Change Management', 'Cultural Alignment'].map((item, i) => (
-                <li key={i} className="flex items-center gap-4 text-paper font-medium hover:text-cyan-accent transition-colors duration-500 group/item cursor-none">
-                  <span className="text-stone-muted text-xs font-serif italic group-hover/item:text-cyan-accent transition-colors duration-500">0{i+1}</span>
+                <li key={i} className="flex items-center gap-4 text-lg text-paper font-medium hover:text-cyan-accent transition-colors duration-500 group/item cursor-none">
+                  <span className="text-stone-muted text-sm font-serif italic group-hover/item:text-cyan-accent transition-colors duration-500">0{i+1}</span>
                   <span className="w-0 h-[1px] bg-cyan-accent transition-all duration-500 group-hover/item:w-6" />
                   {item}
                 </li>
